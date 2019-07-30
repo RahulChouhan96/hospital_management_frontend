@@ -1,0 +1,68 @@
+<div class="container setup">
+        <div class="row">
+          <div class="col-xl-8 offset-xl-2 py-5">
+            <h1>Add Patient</h1>
+            <form id="contact-form" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+              <div class="messages"></div>
+              <div class="controls">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="form_lastname">Name *</label>
+                      <input id="form_lastname" type="email" name="username" class="form-control"
+                        [(ngModel)]="obj.name" required data-error="Lastname is required." #username="ngModel">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                    <div *ngIf="username.invalid && username.touched" style="color:red;">
+                      <div *ngIf="username.errors.required">
+                        Mandatory Field
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_lastname">Hospital Name *</label>
+                            <input id="form_lastname" type="email" name="username" class="form-control"
+                              [(ngModel)]="obj.hospitalName" required data-error="Lastname is required." #username="ngModel">
+                            <div class="help-block with-errors"></div>
+                          </div>
+                          <div *ngIf="username.invalid && username.touched" style="color:red;">
+                            <div *ngIf="username.errors.required">
+                              Mandatory Field
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="form_email">In Date</label>
+                      <input id="form_email" type="text" name="subject" class="form-control"
+                        [(ngModel)]="obj.inDate" data-error="Valid email is required.">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_email">Out Date</label>
+                            <input id="form_email" type="text" name="subject" class="form-control"
+                              [(ngModel)]="obj.outDate" data-error="Valid email is required.">
+                            <div class="help-block with-errors"></div>
+                          </div>
+                        </div>
+                      </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <input type="submit" [disabled]="f.form.pristine || f.form.invalid" class="btn btn-success btn-send"
+                      (click)="addPatient()" value="Add Patient">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>

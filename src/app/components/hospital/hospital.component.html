@@ -1,0 +1,50 @@
+<div class="container design">
+        <h2>In Patients</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>In date</th>
+              <th>Out date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let inPatient of inPatients; let i = index">
+              <td>{{inPatient.name}}</td>
+              <td>{{inPatient.inDate}}</td>
+              <td>{{inPatient.outDate}}</td>
+              <td><a (click)=editIt(i)>edit</a>
+                <div *ngIf="isEdit[i]">
+                        Out Date: <input [(ngModel)]="inPatient.outDate" type="text">
+                        <!-- Patient left: <input [(ngModel)]="inPatient.left" type="text"> -->
+                        <input type="radio" name="left" value=true> Yes
+                        <input type="radio" name="left" value=false> No
+                        <button (click)="edit(i)">Submit</button>
+                </div>
+                    
+                </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Out Patients</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>In date</th>
+              <th>Out date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let outPatient of outPatients; let i = index">
+              <td>{{outPatient.name}}</td>
+              <td>{{outPatient.inDate}}</td>
+              <td>{{outPatient.outDate}}</td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
